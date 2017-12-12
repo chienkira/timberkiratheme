@@ -1,0 +1,21 @@
+<!--
+  customer can change product default image change featured image or variant image
+-->
+{% assign productSize= settings.product_image_size %}
+
+{% if settings.enable_product_variant_image %}
+         {% if product.first_available_variant.image %}
+            {% assign  productImg = product.first_available_variant.image | img_url: productSize %} 
+       
+        {% else %} 
+           {% assign productImg = product | img_url: productSize %} 
+
+        {% endif %}      
+
+        <img src="{{productImg}}" alt="{{ product.featured_image.alt | escape }}" class="image">
+
+  {% else %}
+
+          <img src="{{product | img_url: productSize}}" alt="{{ product.featured_image.alt | escape }}" class="image">
+    
+  {% endif %}

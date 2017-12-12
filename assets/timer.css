@@ -1,0 +1,19 @@
+
+/********** TIMER **********/
+#timer {
+  text-align: center;    margin-bottom: 20px;
+}
+._time{
+  	width: 20%;
+	display: inline-block;
+  	text-align: center;
+}
+._time label{
+	color: #333;
+}
+#timer h3 {
+    color: #707070;
+    font-family: Open Sans;
+    font-size: 32px;
+    font-weight: bold;
+}

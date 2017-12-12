@@ -1,0 +1,118 @@
+{% if settings.enable_product_variant_image %}
+
+  {% assign price_variant_price = product.first_available_variant.price %}
+
+{% else %}
+
+  {% assign price_variant_price = product.price %}
+
+{% endif %}
+
+ <p class="sale">
+ 
+          {% if sold_out %}
+            <br><strong>{{ 'products.product.sold_out' | t }}</strong>
+           {% endif %}
+            
+            
+         {% if on_sale %}
+        
+             <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+              <s>
+ 
+                 {{ product.compare_at_price | money | split: '.' | first}}
+                <sup>
+
+               {{ product.compare_at_price | money | split: '.' | last }}
+
+                </sup>
+            
+             </s>        
+   
+      {% endif %}   
+            
+         
+            
+  {% if on_sale %}
+             {% if product.price_varies %}
+               {% assign sale_price = product.price | money %}
+                 
+
+                      {{ price_variant_price | money | split: '.' | first}}
+                      <sup>
+
+                     {{price_variant_price | money | split: '.' | last }}
+
+                      </sup>
+            
+                 {% else %}
+
+             
+                  {{ product.price | money | split: '.' | first}}
+                  <sup>
+
+                 {{ product.price | money | split: '.' | last }}
+
+                  </sup>
+
+              {% endif %}
+            
+ {% else %}
+            
+            {% if product.price_varies %}
+              
+                    {{ price_variant_price | money | split: '.' | first}}
+                   <sup>
+
+                   {{ price_variant_price | money | split: '.' | last }}
+
+                   </sup>
+   
+            {% else %}
+
+                     {{ product.price | money | split: '.' | first}}
+                   <sup>
+
+                   {{ product.price | money | split: '.' | last }}
+
+                   </sup>
+
+
+            {% endif %}
+            
+    {% endif %}
+            
+    
+            
+        </p>  
+          
+
+{% if settings.product_disposition_style == "product_disposition_style_five" or template != 'index' %}
+
+       {% if product.compare_at_price > product.price %}
+           
+       
+           <span id="salePrice" class="sale-tag large"> 
+          
+             {%comment%}
+            {% assign sale = product.compare_at_price | minus: price_variant_price |  money %}
+            {{ 'products.product.on_save' | t }} 
+             {%endcomment%}
+             
+           {% assign sale = product.compare_at_price | minus: product.price |  money %}
+            {{ 'products.product.on_save' | t }}
+             
+             
+             <span class="money">
+             
+             {{sale}}
+             
+             </span>                      
+            </span> 
+         {% else %}      
+    
+                     <span class="sale_blank"></span>
+          {% endif %}
+
+{% endif %}
+<span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>

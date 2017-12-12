@@ -1,0 +1,195 @@
+{% if settings.slider_enable1 or settings.slider_enable2 or settings.slider_enable3 or settings.slider_enable4 %}
+
+{% assign load='loading' %}
+
+{% else %}
+
+{% assign load='' %}
+
+{% endif %}
+
+  <div id="main" role="main">
+    <section class="slider">
+      <div class="flexslider">
+        <ul class="slides">
+          {% if settings.slider_enable1 %}
+          <li>
+            <a href="{{ settings.slider_link1 }}" class='slider_link'>
+            <img class="nav-bar desktop_nav" src="{{ 'hero_slide_1.png' | asset_url }}" />
+           <img class="nav-bar mobile_nav" src="{{ 'm_hero_slide_1.png' | asset_url }}" />
+            </a>
+            
+            
+          </li>
+          {% endif %}
+         
+          {% if settings.slider_enable2 %}
+          <li>
+            <a href="{{ settings.slider_link2 }}" class='slider_link'>
+             <img class="nav-bar desktop_nav lazy" data-src="{{ 'hero_slide_2.png' | asset_url }}" />
+           <img class="nav-bar mobile_nav lazy" data-src="{{ 'm_hero_slide_2.png' | asset_url }}" />
+            </a>
+
+          </li>
+          {% endif %}
+          {% if settings.slider_enable3 %}
+          <li>
+           <a href="{{ settings.slider_link3 }}" class="slider_link">
+            <img class="nav-bar desktop_nav lazy" data-src="{{ 'hero_slide_3.png' | asset_url }}" />
+           <img class="nav-bar mobile_nav lazy" data-src="{{ 'm_hero_slide_3.png' | asset_url }}" />
+
+            </a>
+          </li>
+          {% endif %}
+          {% if settings.slider_enable4 %}
+          <li>
+               <a href="{{ settings.slider_link4 }}" class="slider_link">
+            <img class="nav-bar desktop_nav lazy" data-src="{{ 'hero_slide_4.png' | asset_url }}" />
+           <img class="nav-bar mobile_nav lazy" data-src="{{ 'm_hero_slide_4.png' | asset_url }}" />
+            </a>
+
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </section>
+
+
+  <style type="text/css">
+  
+    li.css a {
+      border-radius: 0;
+    }
+  </style>
+ 
+</div>
+
+
+
+
+
+<style>
+/*
+  .flexslider .slides > li:first-child {display: block; -webkit-backface-visibility: visible;} 
+
+  .flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;}
+*/
+  /*
+  div#main {
+    width: 100%;
+    height: 100%;
+}
+.flexslider {
+    height:100%;
+   width: 100%;
+}
+.slider li {
+     height:100%;
+   width: 100%;
+}
+  
+  //// for setting in mobile
+  @media (max-width: 768px) {
+        .flexslider .slides img{
+            height:100% !important;
+       width: 100%;
+          min-height:100% !important;
+        }
+
+        .slider li {
+         height:100%;
+       width: 100%;
+         }
+        .flexslider {
+        height:100%;
+       width: 100%;
+          }
+  }
+  ///// desktop setting
+  @media (min-width: 769px) {
+    
+    
+         .flexslider .slides img{
+            height:100% !important;
+       width: 100%;
+            min-height:100%;
+        }
+
+        .slider li {
+         height:100% !important;
+       width: 100%;
+         }
+        .flexslider {
+        height:100% !important;
+       width: 100%;
+          }
+    
+    
+  }
+  */
+</style>
+
+	<link rel="stylesheet" href="//www.marchettidesign.net/demo/flexslider-full-responsive/css/flexslider.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="//www.marchettidesign.net/demo/flexslider-full-responsive/css/slider.css" type="text/css" media="screen" />
+
+
+{% comment %}
+{{ 'flexslider.css' | asset_url | stylesheet_tag }}
+{% endcomment %}
+
+{{ 'jquery.flexslider.js' | asset_url | script_tag }}
+<script type="text/javascript">
+   /* 
+  $(window).load(function(){
+    $('.flexslider').flexslider({
+      animation: "slide",
+      slideshowSpeed: "{{ settings.slideshowSpeed }}",
+      animationSpeed: "{{ settings.animationSpeed }}",
+      smoothHeight: false
+    });
+  });
+  
+  */
+</script>
+<!-- FlexSlider -->
+
+
+<script>
+$(window).load(function() {
+  $('.flexslider').flexslider({
+ 
+   animation: "slide",
+      slideshowSpeed: "{{ settings.slideshowSpeed }}",
+      animationSpeed: "{{ settings.animationSpeed }}",
+      smoothHeight: false,
+    initDelay: 0,
+    start: function(slider) { // Fires when the slider loads the first slide
+      var slide_count = slider.count - 1;
+
+      $(slider)
+        .find('img.lazy:eq(1)')
+        .each(function() {
+          var src = $(this).attr('data-src');
+          $(this).attr('src', src).removeAttr('data-src');
+        });
+    },
+    before: function(slider) { // Fires asynchronously with each slider animation
+      var slides     = slider.slides,
+          index      = slider.animatingTo,
+          $slide     = $(slides[index]),
+          $img       = $slide.find('img[data-src]'),
+          current    = index,
+          nxt_slide  = current + 1,
+          prev_slide = current - 1;
+
+      $slide
+        .parent()
+        .find('img.lazy:eq(' + current + '), img.lazy:eq(' + prev_slide + '), img.lazy:eq(' + nxt_slide + ')')
+        .each(function() {
+          var src = $(this).attr('data-src');
+          $(this).attr('src', src).removeAttr('data-src');
+        });
+    }
+  });
+});
+</script>

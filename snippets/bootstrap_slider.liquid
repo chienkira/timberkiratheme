@@ -1,0 +1,268 @@
+{% if settings.slider_enable1 or settings.slider_enable2 or settings.slider_enable3 or settings.slider_enable4 %}
+ 
+  <!--<link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+-->
+
+{{ 'bootstrap_slider.min.css' | asset_url | stylesheet_tag }}
+
+<style>
+.full-screen {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+  .item {
+    padding: 0px !important;
+}
+a.hrfitem {
+    background: rgba(90, 80, 80, 0.21);
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+  
+  .carousel-inner>.item {
+   background-size: 100%;
+    background-position:top;
+  
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+  span.glyphicon.glyphicon-chevron-left {
+    background: url(//cdn.shopify.com/s/files/1/1787/0049/files/left.png?10775138495619478337) no-repeat scroll 0 0 transparent;
+    width: 35px;
+    height: 35px;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    margin-top: -17px;
+}
+  span.glyphicon.glyphicon-chevron-right {
+    background: url(//cdn.shopify.com/s/files/1/1787/0049/files/right.png?10775138495619478337) no-repeat scroll 0 0 transparent;
+    width: 35px;
+    height: 35px;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 25%;
+    margin-top: -17px;
+}
+  
+  .carousel-control.right, .carousel-control.left{ background-image:none; }
+  
+  .carousel-indicators .active {
+    margin: 0;
+    width: 12px;
+    height: 12px;
+    background-color: #ff0404;
+    border: none;
+}
+  .glyphicon-chevron-right:before {
+    content: "";
+}
+  .glyphicon-chevron-left:before {
+    content: "";
+}
+  .carousel-indicators li {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+   margin:0px;
+  
+    text-indent: -999px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+
+    background-color: rgba(183, 174, 174, 0.77);
+}
+  
+  
+  .carousel-fade .carousel-inner .item {
+  opacity: .7;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+}
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: .7;
+  z-index: 1;
+}
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+
+
+  
+  //// for setting in mobile
+  @media (max-width: 768px) {
+        .carousel .item {
+          display: block;}
+
+  }
+  ///// desktop setting
+  @media (min-width: 769px) {
+    
+ 
+      .fade-carousel {
+    position: relative;
+    height: 100vh;
+}
+.fade-carousel .carousel-inner .item {
+    height: 100vh;
+} 
+    
+    
+  }
+  
+     .carousel-inner>.item img {
+    width: 100%;
+}
+ 
+</style>
+ {% assign active1 = '' %} 
+ {% assign active2 = '' %} 
+ {% assign active3 = '' %} 
+ {% assign active4 = '' %} 
+
+ {% if settings.slider_enable1 %} 
+   
+ {% assign active1 = 'active' %} 
+  
+ {% elsif settings.slider_enable2 %}
+
+ {% assign active2 = 'active' %} 
+
+ {% elsif settings.slider_enable3 %}
+ 
+ {% assign active3 = 'active' %} 
+
+ {% elsif settings.slider_enable4 %}
+
+ {% assign active4 = 'active' %} 
+
+ {% else %}
+
+ {%endif%}
+
+
+<div id="mycarousel" class="carousel slide fade-carousel carousel-fade" style="margin: 0px auto;">
+       {% comment %}     <ol class="carousel-indicators" style="padding-bottom: 42px;">
+              {% if settings.slider_enable1 %}    <li data-target="#mycarousel" data-slide-to="0" class="active"></li>  {% endif %}
+              {% if settings.slider_enable2 %}    <li data-target="#mycarousel" data-slide-to="1"></li>  {% endif %}
+              {% if settings.slider_enable3 %}    <li data-target="#mycarousel" data-slide-to="2"></li>  {% endif %}
+              {% if settings.slider_enable4 %}    <li data-target="#mycarousel" data-slide-to="3"></li>  {% endif %}
+            </ol>
+        {% endcomment %}
+            <div class="carousel-inner">
+              
+              
+              
+               {% if settings.slider_enable1 %}
+   
+             <div class=" {{active1}} item" align="center">
+             <a href="{{ settings.slider_link1 }}" class='slider_link'>
+              <img class="nav-bar desktop_nav" src="{{ 'hero_slide_1.png' | asset_url }}" />
+               <img class="nav-bar mobile_nav" src="{{ 'm_hero_slide_1.png' | asset_url }}" />
+            
+             </a>
+              </div>
+    
+             {% endif %}
+    
+       {% if settings.slider_enable2 %}
+   
+             <div class="item {{active2}}" align="center">
+           <a href="{{ settings.slider_link2 }}" class='slider_link'>
+            <img class="nav-bar desktop_nav" src="{{ 'hero_slide_2.png' | asset_url }}" />
+           <img class="nav-bar mobile_nav" src="{{ 'm_hero_slide_2.png' | asset_url }}" />
+           
+           </a>
+           </div>
+    
+          {% endif %}
+    
+       {% if settings.slider_enable3 %}
+   
+             <div class="item {{active3}}" align="center">
+           <a href="{{ settings.slider_link3 }}" class='slider_link'>
+            <img class="nav-bar desktop_nav" src="{{ 'hero_slide_3.png' | asset_url }}" />
+           <img class="nav-bar mobile_nav" src="{{ 'm_hero_slide_3.png' | asset_url }}" />   
+           </a>
+           </div>
+    
+          {% endif %}
+    
+       {% if settings.slider_enable4 %}
+   
+             <div class="item {{active4}}" align="center">
+           <a href="{{ settings.slider_link4 }}" class='slider_link'>
+              <img class="nav-bar desktop_nav" src="{{ 'hero_slide_4.png' | asset_url }}" />
+           <img class="nav-bar mobile_nav" src="{{ 'm_hero_slide_4.png' | asset_url }}" />   
+           </a>
+           </div>
+    
+          {% endif %}
+              
+              
+            
+              
+              
+            </div>
+      
+          
+           <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only"></span>
+  </a>
+  <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only"></span>
+  </a>
+          
+        </div>
+	
+    
+    
+    
+   <div id="main" role="main"> 
+</div>
+  
+
+    <script>
+    // Add this to let the carousel start automatic
+    $('#mycarousel').carousel({
+       interval: "{{ settings.slideshowSpeed }}",
+       duration: "{{ settings.animationSpeed }}"
+            });
+
+</script>
+
+
+
+
+
+
+ {% endif %}

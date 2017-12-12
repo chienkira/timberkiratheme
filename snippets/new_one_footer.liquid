@@ -1,0 +1,410 @@
+ <div class="container wrapper">
+
+    
+    <div class="footer__row">
+      
+      <div class="grid__item two-twelfths ftr">
+      
+      
+             {% if linklists[settings.footer].links.size > 0  %} 
+	  <div class="link_box">
+        <h3 class="footer__title">{{ settings.footer_2_heading }}</h3>
+        
+		<ul class="footer__linklist list--unstyled">
+            {% for link in linklists[settings.footer].links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+        </ul>
+       
+	   </div>
+		 {% endif %}
+		
+        <div>&nbsp;</div>
+        
+      </div>
+      
+      <div class="grid__item three-twelfths ftr">  
+		 
+		      {% if linklists[settings.footer-1].links.size > 0  %} 
+	  <div class="link_box">
+        <h3 class="footer__title">{{ settings.footer_3_heading }}</h3>
+        
+		<ul class="footer__linklist list--unstyled">
+            {% for link in linklists[settings.footer-1].links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+        </ul>
+       
+	   </div>
+		 {% endif %}  
+        <div>&nbsp;</div>
+        
+      </div>
+      
+      <div class="grid__item two-twelfths ftr">	 
+		 
+		      {% if linklists[settings.footer-2].links.size > 0  %} 
+	  <div class="link_box">
+        <h3 class="footer__title">{{ settings.footer_4_heading }}</h3>
+        
+		<ul class="footer__linklist list--unstyled">
+            {% for link in linklists[settings.footer-2].links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+        </ul>
+       
+	   </div>
+		 {% endif %}  
+		
+        <div>&nbsp;</div>
+        
+      </div>
+      
+      <div class="grid__item five-twelfths">
+        <h3 class="footer__title">{{ settings.footer_5_heading }}</h3>
+        <div id="droney_map" style="display: block; overflow: hidden; width: 100%; height: 240px; margin-right: auto; margin-left: auto !important; position: relative;">
+        </div>
+        <script>
+          function initMap() {
+            var droney = {lat: 35.6895, lng: 139.6917};
+            var droney_sing = {lat: 1.2757892046215, lng: 103.84725809097};
+            var map = new google.maps.Map(document.getElementById('droney_map'), {
+              zoom: 2,
+              center: droney,
+              styles: [
+                {
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "color": "#f5f5f5"
+                    }
+                  ]
+                },
+                {
+                  "elementType": "labels.icon",
+                  "stylers": [
+                    {
+                      "visibility": "off"
+                    }
+                  ]
+                },
+                {
+                  "elementType": "labels.text.fill",
+                  "stylers": [
+                    {
+                      "color": "#616161"
+                    }
+                  ]
+                },
+                {
+                  "elementType": "labels.text.stroke",
+                  "stylers": [
+                    {
+                      "color": "#f5f5f5"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "administrative.land_parcel",
+                  "elementType": "labels.text.fill",
+                  "stylers": [
+                    {
+                      "color": "#bdbdbd"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "poi",
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "color": "#eeeeee"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "poi",
+                  "elementType": "labels.text.fill",
+                  "stylers": [
+                    {
+                      "color": "#757575"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "poi.park",
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "color": "#e5e5e5"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "poi.park",
+                  "elementType": "labels.text.fill",
+                  "stylers": [
+                    {
+                      "color": "#9e9e9e"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road",
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "color": "#ffffff"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road.arterial",
+                  "elementType": "labels.text.fill",
+                  "stylers": [
+                    {
+                      "color": "#757575"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road.highway",
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "color": "#dadada"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road.highway",
+                  "elementType": "labels.text.fill",
+                  "stylers": [
+                    {
+                      "color": "#616161"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road.local",
+                  "elementType": "labels.text.fill",
+                  "stylers": [
+                    {
+                      "color": "#9e9e9e"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "transit.line",
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "color": "#e5e5e5"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "transit.station",
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "color": "#eeeeee"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "water",
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "color": "#c9c9c9"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "water",
+                  "elementType": "labels.text.fill",
+                  "stylers": [
+                    {
+                      "color": "#9e9e9e"
+                    }
+                  ]
+                }
+              ]
+            });
+            var marker = new google.maps.Marker({
+              position: droney,
+              map: map
+            });
+            var marker_sing = new google.maps.Marker({
+              position: droney_sing,
+              map: map
+            });
+          }
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtsgJ62qWZgkklGciOh4d8Oj3rQLeZVw8&callback=initMap">
+        </script>
+      </div>
+      
+      <div class="grid__item seven-twelfths">
+             {% if settings.footer_logo_enable %}
+              <a href="/">        
+              <img  class="footer__logo" src="{{ 'footer_logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">       
+              </a> {% endif %}
+        
+              <div>
+                <h3 class="footer__title">{{ settings.footer-4-heading }}</h3>
+               <p>{{ settings.footer-4-content}}</p>
+
+
+              </div>
+        
+      </div>
+      
+      <div class="grid__item five-twelfths">
+        
+        
+         {% if settings.footer_newsletter_enable %}
+             <h3 class="footer__title">{{ 'layout.footer.newsletter_title' | t }}</h3>
+              {% if settings.newsletter_form_action != blank %}
+                {% assign form_action = settings.newsletter_form_action %}
+              {% else %}
+                {% assign form_action = '#' %}
+              {% endif %}
+       
+       
+         <form action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="footer__form">
+                <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="EMAIL" id="mail" class="footer__input" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">             
+                <input type="submit" class="footer__submit" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+        </form>
+        {% endif %}
+        
+        
+        
+        
+           <div class="footer-social">
+        {% if settings.footer_social_enable %}
+        <h3 class="footer__title">{{ 'footer.menu_heading.follow_us' | t }}</h3>
+        <ul class="footer__social list--unstyled">
+         
+        
+         {% if settings.social_twitter_link != blank %}
+                    <li class="social__item">
+                      <a class="icon-fallback-text" href="{{ settings.social_twitter_link }}" title="{{ shop.name }} on Twitter">
+                       
+                          <i class="fa fa-twitter" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                  {% endif %}
+                  {% if settings.social_facebook_link != blank %}
+                    <li class="social__item">
+                      <a class="icon-fallback-text" href="{{ settings.social_facebook_link }}" title="{{ shop.name }} on Facebook">
+                        
+                         <i class="fa fa-facebook" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                  {% endif %}
+                    {% if settings.social_youtube_link != blank %}
+                    <li class="social__item">
+                      <a class="icon-fallback-text" href="{{ settings.social_youtube_link }}" title="{{ shop.name }} on Youtube">
+                         <i class="fa fa-youtube" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                  {% endif %}
+                   {% if settings.social_instagram_link != blank %}
+                    <li class="social__item">
+                      <a class="icon-fallback-text" href="{{ settings.social_instagram_link }}" title="{{ shop.name }} on Instagram">
+                        
+                         <i class="fa fa-instagram" aria-hidden="true"></i>
+                        
+                      </a>
+                    </li>
+                  {% endif %}
+        
+                   {% if settings.social_pinterest_link != blank %}
+                  <li class="social__item">
+                      <a class="icon-fallback-text" href="{{ settings.social_pinterest_link }}" title="{{ shop.name }} on Pinterest">
+                           
+                          <i class="fa fa-pinterest" aria-hidden="true"></i>
+
+                      </a>
+                    </li>
+                  {% endif %}
+                
+        
+        </ul>   {% endif %}
+      </div>
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    
+    </div>
+    <div class="footer__misc">
+      <p class="footer__copyright"> <a href="{{ settings.buttom-footer-4-heading_link }}">{{ settings.buttom-footer-4-heading }}</a> / <a target="_top" rel="nofollow" href="{{ settings.buttom-footer-4-content_link }}">{{ settings.buttom-footer-4-content}}</a> </p>
+      
+     <ul class="inline-list payment-icons">
+                     {% if settings.pay_discover %}   
+                 <li>
+                    <span class="icon-fallback-text">
+                      <span class="icon icon-discover" aria-hidden="true"></span>
+                      <span class="fallback-text">{{ 'discover' | replace: '_',' '}}</span>
+                    </span>
+                  </li>
+           {% endif %}
+		   
+		      {% if settings.pay_diners_club %}   
+                 <li>
+                    <span class="icon-fallback-text">
+                      <span  class="icon icon-diners_club" aria-hidden="true"></span>
+                      <span class="fallback-text">{{ 'diners_club' | replace: '_',' '}}</span>
+                    </span>
+                  </li>
+           {% endif %}
+		   
+		     {% if settings.pay_american_express %}   
+                 <li>
+                    <span class="icon-fallback-text">
+                      <span class="icon icon-american_express" aria-hidden="true"></span>
+                      <span class="fallback-text">{{ 'american_express' | replace: '_',' '}}</span>
+                    </span>
+                  </li>
+           {% endif %}
+		   
+		    {% if settings.pay_paypal %}   
+                 <li>
+                    <span class="icon-fallback-text">
+                      <span class="icon icon-paypal" aria-hidden="true"></span>
+                      <span class="fallback-text">{{ 'paypal' | replace: '_',' '}}</span>
+                    </span>
+                  </li>
+           {% endif %}
+		   
+		      {% if settings.pay_master %}   
+                 <li>
+                    <span class="icon-fallback-text">
+                      <span class="icon icon-master" aria-hidden="true"></span>
+                      <span class="fallback-text">{{ 'master' | replace: '_',' '}}</span>
+                    </span>
+                  </li>
+           {% endif %}
+		   
+		      {% if settings.pay_visa %}   
+                 <li>
+                    <span class="icon-fallback-text">
+                      <span class="icon icon-visa" aria-hidden="true"></span>
+                      <span class="fallback-text">{{ 'visa' | replace: '_',' '}}</span>
+                    </span>
+                  </li>
+           {% endif %}
+        
+      </ul>
+     
+      
+    </div>
+  </div>

@@ -1,0 +1,44 @@
+  {% assign price_var=variant.price | withoutmoney %}  
+            
+           {% if price_var == 0 %}          
+              
+                <button type="submit" name="add" id="AddToCartZero" class="btn variant_zero">
+                <span id="AddToCartText">{{ settings.add_to_cart_button_text_zero_price }} </span>
+                </button>
+            
+            {% else %}          
+                 {% assign zeroCost='' %}  
+                      
+                 <button type="submit" name="add" id="AddToCart" class="btn variant_text">
+                 <span id="AddToCartText">{{ settings.add_to_cart_button_text }} </span>
+                 </button>
+
+             {% endif %}
+
+            
+                <!-- allow setting after add to cart-->
+       {% if settings.move_product_desc == 'move_product_desc_addtocart' %}
+       
+          {% if  settings.visitor_counter_before  %}
+		  {% if settings.visitor_counter_enable %}
+               <div class="visticounter"><p class="fake_counter_p"><span class="fake_counter" > {{ settings.visitor_counter_text_before }} </span><span class="fake_counter_b"> <b id="dynamic_counter">  </b> </span><span class="fake_counter_l"><strong>{{ settings.visitor_counter_text_after }} </strong></span></p> </div>      
+          {% endif %}
+          {% endif %} 
+
+
+          {% if settings.product_description %}
+
+             <div class="product-description rte" itemprop="description">
+            {% if product.description contains '<!-- split -->' %}
+            {% assign mycontent = product.content | split:'<!-- split -->' %}
+            {{ mycontent[0] }}
+            {% else %}
+            {{ product.description }}
+            {% endif %}
+             </div>
+
+          {% endif %}
+        
+      {% endif %}
+          
+            <!-- for skip add to cart code-->

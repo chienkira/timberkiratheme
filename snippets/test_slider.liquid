@@ -1,0 +1,202 @@
+{{ 'skdslider.js' | asset_url | script_tag }}
+
+
+<style>
+.skdslider {
+    width: 100%;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    height: 100%;
+}
+  
+ 
+
+.skdslider ul.slides{ margin:0; padding:0; list-style-type:none;}
+.skdslider ul.slides li
+{
+   display: none;
+}
+.skdslider ul.slides li img{
+    width: 100%;
+	height:100%;
+	border:0;
+}
+
+.skdslider ul.slide-navs {
+    bottom: 20px;
+    left: 50%;
+    position: absolute;
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.skdslider ul.slide-navs li {
+    float: left;
+	background: url("{{ 'slide-bg.png' | file_url }}") no-repeat scroll 0 0 transparent;
+	height:12px;
+	width:12px;
+	margin-right:4px;
+	cursor:pointer;
+}
+.skdslider ul.slide-navs li.current-slide {
+  background: url("{{ 'slide-bg-active.png' | file_url }}") no-repeat scroll 0 0 transparent;
+}
+
+.skdslider .slide-desc {
+    background: url("{{ 'slide_desc.png' | file_url }}") repeat scroll 0 0 transparent;
+    left: 0;
+    padding: 0 15px 0 15px;
+    position: absolute;
+    bottom: 15%;
+    max-width: 85%;
+	display:inline-block;
+}
+.skdslider .slide-desc > h2 {
+    color: #CFDB0C;
+    font-family: 'Oswald';
+    font-size: 25px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.skdslider .slide-desc > p {
+    color: #FFFFFF;
+    font-family: 'Oswald';
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 5px;
+}
+.skdslider .slide-desc > p a.more {
+    color:#990000;
+	font-size:20px;
+	text-decoration:none;
+}
+.skdslider .slide-desc > p a.more:hover {
+text-decoration:underline;
+}
+
+.skdslider a.prev{
+    background: url("{{ 'left.png' | file_url }}") no-repeat scroll 0 0 transparent;
+	width:35px;
+	height:35px;
+	display:block;
+	cursor:pointer;
+	position:absolute;
+	top:50%;
+	left:2%;
+	margin-top:-17px;
+}
+
+.skdslider a.next{
+    background: url("{{ 'right.png' | file_url }}") no-repeat scroll 0 0 transparent;
+	width:35px;
+	height:35px;
+	display:block;
+	cursor:pointer;
+	position:absolute;
+	top:50%;
+	right:2%;
+	margin-top:-17px;
+}
+.skdslider a.prev:hover{
+  
+}
+.skdslider a.next:hover{
+  
+}
+
+
+.skdslider a.play{
+    background: url("{{ 'play.png' | file_url }}") no-repeat scroll center center transparent;
+	width:35px;
+	height:35px;
+	display:block;
+	cursor:pointer;
+	position:absolute;
+	top:50%;
+	left:48%;
+	margin-top:-17px;
+}
+
+.skdslider a.pause{
+    background: url("{{ 'pause.png' | file_url }}") no-repeat scroll center center transparent;
+	width:35px;
+	height:35px;
+	display:block;
+	cursor:pointer;
+	position:absolute;
+	top:50%;
+	left:48%;
+	margin-top:-17px;
+}
+/*Some Responsive CSS */
+@media screen and (max-width:767px) {
+	.skdslider .slide-desc > h2 {
+		font-size: 20px;
+		margin-bottom: 5px;
+		margin-top: 5px;
+	}
+	
+	.skdslider .slide-desc > p {
+		font-size: 14px;
+		line-height: 15px;
+		margin-top: 5px;
+	}
+	.skdslider .slide-desc > p a.more {
+		font-size:14px;
+	}
+}
+  
+  
+  
+.sliderDesktop > li:first-child {display: block; -webkit-backface-visibility: visible;} 
+
+  .sliderDesktop > li {display: none; -webkit-backface-visibility: hidden;}
+  
+  .sliderMobile > li:first-child {display: block; -webkit-backface-visibility: visible;} 
+
+  .sliderMobile > li {display: none; -webkit-backface-visibility: hidden;}
+  
+  
+  
+  
+</style>
+
+
+
+
+
+</style>
+
+<script type="text/javascript">
+		jQuery(document).ready(function(){
+			jQuery('#demo1').skdslider({delay:5000, animationSpeed: 2000,showNextPrev:true,showPlayButton:true,autoSlide:true,animationType:'fading'});
+				jQuery('#responsive').change(function(){
+			  $('#responsive_wrapper').width(jQuery(this).val());
+			  $(window).trigger('resize');
+			});			
+		});
+</script>
+
+
+<div class="skdslider">
+    <ul id="demo1" class="slides">
+<li>
+<img src="//cdn.shopify.com/s/files/1/1787/0049/t/2/assets/hero_slide_1.png?11314355934882483812" />
+
+</li>
+<li>
+<img src="//cdn.shopify.com/s/files/1/1787/0049/t/2/assets/hero_slide_1.png?11314355934882483812" />
+
+</li>
+<li>
+<img src="//cdn.shopify.com/s/files/1/1787/0049/t/2/assets/hero_slide_1.png?11314355934882483812" />
+
+</li>
+</ul>
+</div>
+

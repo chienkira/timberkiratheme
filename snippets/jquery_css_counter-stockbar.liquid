@@ -1,0 +1,49 @@
+{{ 'jquery.plugin.js' | asset_url | script_tag }}
+{{ 'jquery.countdown.js' | asset_url | script_tag }}
+ {{ 'bootstrap.min.js' | asset_url | script_tag }}
+{%if product.metafields.scarcity.stockbar == '2'%}
+{{ 'progressjs2.css' | asset_url | stylesheet_tag }}
+{{ 'progress2.js' | asset_url | script_tag }}
+{% else %}
+{{ 'progressjs.css' | asset_url | stylesheet_tag }}
+{{ 'progress.js' | asset_url | script_tag }}
+{% endif %}
+
+
+ 
+
+{%if product.metafields.scarcity.timerstyle == '2'%}
+{{ 'timer2.css' | asset_url | stylesheet_tag }}
+{{ 'timer2.js' | asset_url | script_tag }}
+{% else %}
+{{ 'timer.css' | asset_url | stylesheet_tag }}
+{{ 'timer.js' | asset_url | script_tag }}
+
+
+
+
+
+<script type="text/javascript"> 
+$(document).ready(function() { 
+$("#timer").timer(); 
+});
+</script>
+{%endif%}
+
+
+
+
+<script type="text/javascript"> 
+$(document).ready(function() {
+  $("#progress_bar").progressbar(); 
+});
+</script>
+
+
+
+
+
+
+
+
+

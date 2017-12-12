@@ -1,0 +1,7 @@
+{
+  "products": {
+    "product": {
+      "on_save": "Gemme"
+    }
+  }
+}

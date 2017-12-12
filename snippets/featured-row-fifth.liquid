@@ -1,0 +1,99 @@
+{% assign header_title = collections[featured_row].title %}
+{% assign more_link = collections[featured_row].url %}
+
+{% capture row_limit %}{{ row_limit_setting | times: 4 }}{% endcapture %}
+
+<div class="section-header">
+  {% if header_title %}
+    <p class="{% if more_link %} section-header__left{% endif %}">  <a href="{{ more_link }}"> {{ header_title }} </a> </p>
+  
+  {% endif %}
+  {% if more_link %}
+    <div class="section-header__right">
+      {% assign header_title = header_title | downcase %}
+      <a href="{{ more_link }}">{{ 'homepage.sections.more' | t }} {{ header_title }} &rsaquo;</a>
+    </div>
+  {% endif %}
+</div>
+
+<!----------------------
+fifth product style
+------------------------>
+
+<div class="main_Product_grid first_product_disposition" id="container">
+
+  {% for product in collections[featured_row].products limit: row_limit %}
+  
+ 
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% comment %}
+  Check if the product is sold out and set a variable to be used below.
+{% endcomment %}
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+  
+	{% assign var_count = forloop.index %}
+    <div class="item large--one-quarter">
+      
+ 
+      
+        {% if sold_out %}
+            <p class=" {{ sale_box_opt  }} hidesale"> 
+               <strong>{{ settings.productsoldout }}</strong>
+            </p>
+       {% else %}
+    
+          <p class=" {{ sale_box_opt  }} hidesale">  
+      {% if product.price_varies %}
+          <strong>{{ settings.productsale }}</strong>  
+            {% else %}
+        <strong>{{ settings.productsale }}</strong>
+     
+      {% endif %}
+            </p>
+        
+      
+      
+       {% endif%}
+      
+    
+      <div class="h_pod">
+        <a href="{{ product.url }}">
+               {% include "image_setting" %}
+        </a>
+      </div>
+        <div class="home_prod_info">
+         
+          <h5 class="nav-bar desktop_nav title"> <a href="{{ product.url }}">
+            {{ product.title }}
+            </a></h5>
+          <h5 class="nav-bar mobile_nav title">
+             <a href="{{ product.url }}">
+            {% if settings.on_mobile_title_set == "on_mobile_title_set_line_one" %}
+             {% assign setHlimit=settings.home_page_text_limit %}
+            {{ product.title | truncate:setHlimit }}
+            {% else %}
+             {{ product.title }}
+            {% endif %}
+            </a>
+          </h5>
+          
+     {% include 'product_price_setting' %}     
+          
+   
+        </div>
+      
+    </div>
+	{% if var_count == 4 or var_count == 8 or var_count == 12 or var_count == 16 or var_count == 20 or var_count == 24  %}
+    <div class="clear_both"></div>
+    {% endif %}
+
+    {% endfor %}
+  
+</div>
