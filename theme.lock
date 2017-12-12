@@ -226,7 +226,7 @@ assets/style.css:
 assets/timber.js.liquid:
   development: 2017-12-09T23:05:22+09:00   ad53c09044368c6a8f7278d247cee0b4
 assets/timber.scss.liquid:
-  development: 2017-12-11T23:19:12+09:00   bc899d08309a8a24c3cad886e643e82d
+  development: 2017-12-13T00:31:29+09:00   d6e3732fd1a4263f811554e56a50a7ee
 assets/timer.css:
   development: 2017-12-09T23:05:23+09:00   9eb7da61576783f108e17ff19690cbcb
 assets/timer.js:
@@ -248,13 +248,13 @@ config/settings_data.json:
 config/settings_schema.json:
   development: 2017-12-09T23:05:26+09:00   7c57713f3018bbf16090ab1c9509b850
 layout/theme.liquid:
-  development: 2017-12-12T23:00:02+09:00   18b3e2da24bb90b182bd203681372cdc
+  development: 2017-12-12T23:25:16+09:00   18b3e2da24bb90b182bd203681372cdc
 locales/da.json:
   development: 2017-12-09T23:05:24+09:00   0a1b4a2bf4c1ce9d97c55111db7d53d2
 locales/de.json:
   development: 2017-12-09T23:05:24+09:00   cf7ad9dd4264e27702a48c1ca50530fe
 locales/en.default.json:
-  development: 2017-12-09T23:05:24+09:00   24b229f422f110a0a3e63abb83b86373
+  development: 2017-12-13T00:35:20+09:00   309222f4cb43f801614dc1552240e919
 locales/es.json:
   development: 2017-12-09T23:05:24+09:00   b7c484d4ccd6cab98ce435fd0c305586
 locales/fr.json:
@@ -346,11 +346,11 @@ snippets/linked-options.liquid:
 snippets/main-products.liquid:
   development: 2017-12-09T23:05:25+09:00   008ced29b49cc29cc3ae4580b336270a
 snippets/mega_menu_desktop.liquid:
-  development: 2017-12-09T23:05:25+09:00   245a31ee25f7578f0cd49df31c540a21
+  development: 2017-12-13T00:51:33+09:00   6981b3eca5a6c8d981ba18ea8eb90130
 snippets/mega_menu_mobile.liquid:
   development: 2017-12-09T23:05:25+09:00   0d17bedf684d22228c4fc882e1401e63
 snippets/nav_desktop.liquid:
-  development: 2017-12-12T23:21:23+09:00   e264bfefd3af3fbb03cc36b58992ff71
+  development: 2017-12-12T23:27:39+09:00   e264bfefd3af3fbb03cc36b58992ff71
 snippets/nav_mobile.liquid:
   development: 2017-12-09T23:05:25+09:00   e8e2b6d8820edc86905ebf6c364a681a
 snippets/new_flex.liquid:
@@ -358,7 +358,7 @@ snippets/new_flex.liquid:
 snippets/new_footer.liquid:
   development: 2017-12-09T23:05:25+09:00   d825f0bc62f1931bdc8ba2d02a5f7835
 snippets/new_one_footer.liquid:
-  development: 2017-12-11T23:34:26+09:00   e778847b1d4780090f4b243736c63027
+  development: 2017-12-13T00:14:50+09:00   201b646665076f5d1dff82a88ee01ce4
 snippets/oldIE-js.liquid:
   development: 2017-12-09T23:05:25+09:00   1197cc7109944206a600ed5caaef6a6f
 snippets/onboarding-empty-collection.liquid:
