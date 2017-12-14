@@ -228,7 +228,7 @@ assets/style.css:
 assets/timber.js.liquid:
   development: 2017-12-09T23:05:22+09:00   ad53c09044368c6a8f7278d247cee0b4
 assets/timber.scss.liquid:
-  development: 2017-12-14T17:24:04+09:00   504f5d7716446ece3a597157354415c0
+  development: 2017-12-14T23:18:36+09:00   464b856f26c02db99aff04fa0b1418ee
 assets/timer.css:
   development: 2017-12-14T00:23:05+09:00   a7ff65cc8563136a5ab15656cdb38094
 assets/timer.js:
@@ -248,11 +248,11 @@ assets/user-icn.jpg:
 assets/user_mobile.png:
   development: 2017-12-09T23:05:24+09:00   ab9c37ccd80d0bb2b1ac1dc8071cd817
 config/settings_data.json:
-  development: 2017-12-14T16:53:55+09:00   ec99a374b34703d65863b11c655463a2
+  development: 2017-12-14T23:22:31+09:00   96bba1d493bd0de72f4fb7534c6e5d99
 config/settings_schema.json:
   development: 2017-12-09T23:05:26+09:00   7c57713f3018bbf16090ab1c9509b850
 layout/theme.liquid:
-  development: 2017-12-14T16:24:01+09:00   5cb071a6080055f934e357441d5fd2a7
+  development: 2017-12-14T23:34:32+09:00   8421827805eca5de812073f31080ec15
 locales/da.json:
   development: 2017-12-09T23:05:24+09:00   0a1b4a2bf4c1ce9d97c55111db7d53d2
 locales/de.json:
@@ -312,7 +312,7 @@ snippets/discount_popup.liquid:
 snippets/element_add_to_cart.liquid:
   development: 2017-12-14T16:21:40+09:00   247c1ff60fb416ddb79c892d1c9ae9bd
 snippets/element_progress_bar.liquid:
-  development: 2017-12-09T23:05:24+09:00   a3a86f241e70313e60a3d5cdb006c227
+  development: 2017-12-14T23:29:14+09:00   b38d7f4cfc1f5ddf0509bc6ef6d8400f
 snippets/element_timer.liquid:
   development: 2017-12-14T16:49:28+09:00   1a94961a3a089069f7b46e6f03f99dac
 snippets/featured-collection.liquid:
@@ -374,7 +374,7 @@ snippets/onboarding-featured-products.liquid:
 snippets/pick-an-option.liquid:
   development: 2017-12-09T23:05:25+09:00   8c030e8d1e0da97d5bedcd2dc79c9ad2
 snippets/product-count.liquid:
-  development: 2017-12-09T23:05:25+09:00   0a897bb4c361e555d9673c07e336fa08
+  development: 2017-12-14T23:27:15+09:00   0a897bb4c361e555d9673c07e336fa08
 snippets/product-count2.liquid:
   development: 2017-12-09T23:05:25+09:00   ff23c14e4adaa7c47f18372f9ecac6f4
 snippets/product-grid-collage.liquid:
@@ -478,6 +478,6 @@ templates/page.redeem_test.liquid:
 templates/page.test.liquid:
   development: 2017-12-09T23:05:26+09:00   75f27f604924cbff9c582ee25c911195
 templates/product.liquid:
-  development: 2017-12-14T16:45:39+09:00   c98d8fb18b16924334db40b1400a817d
+  development: 2017-12-14T23:43:01+09:00   3cf98320fc744422ffcea17e07d22259
 templates/search.liquid:
   development: 2017-12-09T23:05:26+09:00   47f7ba47ed343f4464d927c831be0e5b

@@ -61,7 +61,7 @@
     {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
   {% endif %}
 
-   {{ 'jquery.nicescroll.js' | asset_url | script_tag }}
+   {% comment %} {{ 'jquery.nicescroll.js' | asset_url | script_tag }}
   
     <script>
   $(document).ready(function() {
@@ -69,7 +69,7 @@
 	var nice = $("html").niceScroll();  // The document page (body)
     
     });
-   </script>
+   </script> {% endcomment %}
    <script>
   
 $(document).ready(function(){ var deviceAgent = navigator.userAgent.toLowerCase(); var agentID = deviceAgent.match(/(iPad|iPhone|iPod)/i); if (agentID) { $('body').css('-webkit-overflow-scrolling', 'touch'); } });
