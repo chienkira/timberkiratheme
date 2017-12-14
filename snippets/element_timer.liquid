@@ -146,23 +146,23 @@
 
         {% if settings.product_description %}
 
-         <div class="product-description rte" itemprop="description">
+         {% comment %} <div class="product-description rte" itemprop="description">
         {% if product.description contains '<!-- split -->' %}
         {% assign mycontent = product.content | split:'<!-- split -->' %}
         {{ mycontent[0] }}
         {% else %}
         {{ product.description }}
         {% endif %}
-         </div>
+         </div> {% endcomment %}
         
         {% endif %}
         
       {% endif %}
 
 
-<style>
+{% comment %} <style>
 
   .product-description.rte, .rte{
   float:left !important;
   }
-</style>
+</style> {% endcomment %}

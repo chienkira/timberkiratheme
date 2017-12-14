@@ -15,7 +15,7 @@
 .morelink {
     display: block;
 }
-	</style>
+</style>
  
 
 <div itemscope itemtype="http://schema.org/Product">
@@ -28,125 +28,112 @@
   {% endcomment %}
   {% assign current_variant = product.selected_or_first_available_variant %}
 
-    {% if settings.show_breadcrumb %}
-      
+    {% if settings.show_breadcrumb %}    
          {% include 'breadcrumb' %}
-   
     {% endif %}
   
   <div class="grid product-single">
+    {% comment %} Product images {% endcomment %}
     <div class="grid__item large--one-half text-center">
-   
       {% if settings.move_product_title == "move_product_title_picture" %}
-      <h1 itemprop="name"class="product_title_size">{{ product.title }}</h1>
-      
-       {% endif %}
-      
+        <h1 itemprop="name"class="product_title_size">{{ product.title }}</h1>
+      {% endif %}
      {% include 'product_image' %}
     </div>
 
+    {% comment %} Product main features {% endcomment %}
     <div class="grid__item large--one-half">
     
       {% if settings.move_product_title == "move_product_title_price" %}
-      <h1 itemprop="name" class="product_title_size">{{ product.title }}</h1>
-       {% endif %}
+        <h1 itemprop="name" class="product_title_size">{{ product.title }}</h1>
+      {% endif %}
       
       <div class="top_div_counter" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
         <meta itemprop="priceCurrency" content="{{ shop.currency }}">
-
         <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
-
         {% comment %}
           ID addToCartForm is a selector for the ajax cart plugin
         {% endcomment %}
         <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">    
-          
-           {% assign variant = product.selected_or_first_available_variant %}
-      <div class="purchase product_sale_box">
-      
-        <span class="price" id="ProductPrice">{{ variant.price | money }}
-        </span>
-      
-          {% if settings.show_compare_price %}
-          
-             {% if product.compare_at_price_max > product.price %}
+          {% assign variant = product.selected_or_first_available_variant %}
 
-              <span id="ComparePrice">{{ variant.compare_at_price | money }}
-             </span>
-              {% endif %}
-          
-        
-          {% endif %}
-        
-        
-          {% if settings.show_saved_amount %}
-        
-           
-           {% if variant.compare_at_price > variant.price %}
-         
-           <span id="salePrice" class="salePriceproduct moneysale-tag sale-tag large"> 
-           {% assign sale = product.compare_at_price | minus: product.price |  money %}
-            {{ 'products.product.on_save' | t }}  {{sale}}                      
-            </span> 
-      
-        {% endif %}
-        
-          {% endif %}
-         </div>
-       
-
- 
- {% if settings.variant_swacth == 'two'  %}  
- {% if product.available and product.variants.size > 1 %}
- {% for option in product.options %}
-    
-          {% include 'swatch' with option %}
-          
-  {% endfor %} 
-          
-  {% endif %}
-          
-  {% endif %}           
-          
- 
-            
-           
-             <select name="id" id="productSelect" class="product-single__variants">
-            {% for variant in product.variants %}
-              {% if variant.available %}
-
-                {% comment %}
-                  Note: if you use option_selection.js, your 
-            <select> tag will be overwritten, meaning what you have inside <option> will not reflect what you coded below.
-                {% endcomment %}
-            
-            {% comment %}
-              <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
-            {% endcomment %}
-            
-            <option {% if forloop.length <= 1 and variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
-            
+          {% comment %} Product main feature: text + DJI icon {% endcomment %}
+          {% if settings.product_description %}
+            <div class="product-description rte" itemprop="description">
+            {% if product.description contains '<!-- split -->' %}
+            {% assign mycontent = product.content | split:'<!-- split -->' %}
+            {{ mycontent[0] }}
             {% else %}
-                <option disabled="disabled">
-                  {{ variant.title }} - {{ 'products.product.sold_out' | t }}
-                </option>
+            {{ product.description }}
+            {% endif %}
+            </div>					
+          {% endif %}
+
+          {% if settings.move_product_desc == 'move_product_desc_quantity' %}
+            {% if  settings.visitor_counter_before  %}
+		          {% if settings.visitor_counter_enable %}
+               <div class="visticounter"><p class="fake_counter_p"><span class="fake_counter" > {{ settings.visitor_counter_text_before }} </span><span class="fake_counter_b"> <b id="dynamic_counter">  </b> </span><span class="fake_counter_l"><strong>{{ settings.visitor_counter_text_after }} </strong></span></p> </div>      
               {% endif %}
-            {% endfor %}
+            {% endif %} 
+          {% endif %}
+
+          <div class="purchase product_sale_box">
+            {% if settings.show_compare_price %}
+              {% if product.compare_at_price_max > product.price %}
+                <span id="ComparePrice">{{ variant.compare_at_price | money }}</span>
+              {% endif %}
+            {% endif %}
+            <span class="price" style="width: auto!important" id="ProductPrice">{{ variant.price | money }}</span>
+        
+            {% if settings.show_saved_amount %}
+              {% if variant.compare_at_price > variant.price %}
+                <span id="salePrice" class="salePriceproduct moneysale-tag sale-tag large"> 
+                  {% assign sale = product.compare_at_price | minus: product.price |  money %}
+                  {{ 'products.product.on_save' | t }}  {{sale}}                      
+                </span>
+              {% endif %}
+            {% endif %}
+          </div>
+ 
+          {% if settings.variant_swacth == 'two'  %}  
+            {% if product.available and product.variants.size > 1 %}
+              {% for option in product.options %}
+                {% include 'swatch' with option %}
+              {% endfor %} 
+            {% endif %}
+          {% endif %}
+            
+           
+          <select name="id" id="productSelect" class="product-single__variants">
+          {% for variant in product.variants %}
+            {% if variant.available %}
+                {% comment %}
+                    Note: if you use option_selection.js, your 
+              <select> tag will be overwritten, meaning what you have inside <option> will not reflect what you coded below.
+                  {% endcomment %}
+              {% comment %}
+                <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+              {% endcomment %}
+              <option {% if forloop.length <= 1 and variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+            {% else %}
+              <option disabled="disabled">
+                {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+              </option>
+            {% endif %}
+          {% endfor %}
           </select>         
             
             
-       {% if settings.display_quantity_dropdown %}
+          {% if settings.display_quantity_dropdown %}
                 <label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
-              <!--  <input type="number" id="Quantity" name="quantity" value="1" min="1" class="pop-quantity quantity-selector">
-              -->
-                        <div class="quantity-selector product_quantity cart_quantity">
-                         <a class="plus-minus" onclick="TextBox_AddToIntValue('Quantity',-1)"><i class='iconsh cart_minus'></i></a>
-                          <input name="quantity" class="pop-quantity quantity-selector" id="Quantity" type="text" value="1" min="1" size="3" />
-                         <a class="plus-minus" onclick="TextBox_AddToIntValue('Quantity',+1)"><i class='iconsh cart_plus'></i></a>
-</div>
-            
+                <!--  <input type="number" id="Quantity" name="quantity" value="1" min="1" class="pop-quantity quantity-selector"> -->
+                <div class="quantity-selector product_quantity cart_quantity">
+                  <a class="plus-minus" onclick="TextBox_AddToIntValue('Quantity',-1)"><i class='iconsh cart_minus'></i></a>
+                  <input name="quantity" class="pop-quantity quantity-selector" id="Quantity" type="text" value="1" min="1" size="3" />
+                  <a class="plus-minus" onclick="TextBox_AddToIntValue('Quantity',+1)"><i class='iconsh cart_plus'></i></a>
+                </div>
+        
                 <script>
-
                   function TextBox_AddToIntValue(targetId,addToValue)
                   {
                       var input = document.getElementById(targetId);
@@ -164,75 +151,35 @@
                        input.value=total_quantity;
                     }
                   }
-
-          </script> 
-            
-         {% else %}
-            
+                </script> 
+          {% else %}
                 <input type="hidden" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
-
-         {% endif %}
-            
-                 
-  
-            
-               <!-- allow setting after quantity-->
-          {% if settings.move_product_desc == 'move_product_desc_quantity' %}
-       
-          {% if  settings.visitor_counter_before  %}
-		  {% if settings.visitor_counter_enable %}
-               <div class="visticounter"><p class="fake_counter_p"><span class="fake_counter" > {{ settings.visitor_counter_text_before }} </span><span class="fake_counter_b"> <b id="dynamic_counter">  </b> </span><span class="fake_counter_l"><strong>{{ settings.visitor_counter_text_after }} </strong></span></p> </div>      
           {% endif %}
-         {% endif %} 
-               
-            {% if settings.product_description %}
-
-                 <div class="product-description rte" itemprop="description">
-                {% if product.description contains '<!-- split -->' %}
-                {% assign mycontent = product.content | split:'<!-- split -->' %}
-                {{ mycontent[0] }}
-                {% else %}
-                {{ product.description }}
-                {% endif %}
-                 </div>					
-           
-
-            {% endif %}
-
-            {% endif %}
-            
             
           {% if settings.enable_product_cart_skip %}     
-
-         <input type="hidden" name="return_to" value="/checkout" />
-
+            <input type="hidden" name="return_to" value="/checkout" />
           {% endif %}
-            {% include 'product-count' %}
-             <input required type="hidden" id="upsellcheckquantity" name="properties[upsellcheckquantity]">
+
+          {% include 'product-count' %}
+          <input required type="hidden" id="upsellcheckquantity" name="properties[upsellcheckquantity]">
         </form>
 
       </div>
+
+      {% if settings.social_sharing_products %}
+          {% include 'social-sharing' %}
+      {% endif %}
    
-        <div class="product_img">
-          <img alt="" src="{{ 'product_desc_below.png' | asset_url }}">
-        </div>
-        {% if settings.social_sharing_products %}
+      <div class="product_img">
+        <img alt="" src="{{ 'product_desc_below.png' | asset_url }}">
+      </div>
         
-           {% include 'social-sharing' %}
-        
-        {% endif %} 
-        
-        {% if  settings.visitor_counter_before == false  %}
-		{% if settings.visitor_counter_enable %}
-        <p class="fake_counter_p"><span class="fake_counter" > {{ settings.visitor_counter_text_before }} </span><span class="fake_counter_b"> <b id="dynamic_counter">  </b> </span><span class="fake_counter_l"><strong>{{ settings.visitor_counter_text_after }} </strong></span></p>       
+      {% if  settings.visitor_counter_before == false  %}
+        {% if settings.visitor_counter_enable %}
+            <p class="fake_counter_p"><span class="fake_counter" > {{ settings.visitor_counter_text_before }} </span><span class="fake_counter_b"> <b id="dynamic_counter">  </b> </span><span class="fake_counter_l"><strong>{{ settings.visitor_counter_text_after }} </strong></span></p>       
         {% endif %}
-         {% endif %}
-         {% comment %}
-        
-        {% include 'addthis' %}
-        If the user is on a collection product page (ie with /collections/collection-handle/products/product-handle)
-        in the URL, we can show next/previous links to other products in the collection.
-         {% endcomment %}
+      {% endif %}
+
       {% if collection %}
         {% if collection.previous_product or collection.next_product %}
           <p>
@@ -253,25 +200,30 @@
     </div>
   </div>
 
-</div>
-  <div id="second_description">
-     {{ mycontent[1] }}
+  {% comment %} Product description/specifications {% endcomment %}
+  <div class="grid product-single" id="second_description">
+    <div class="grid">
+      <h3>Product descriptions and specifications</h3>
+    </div>
+    {{ mycontent[1] }}
   </div>
-  <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
-  {% comment %}
-    <div class="half_disc_readmore" style="display:none;">{{ product.description | truncate: 400 }}</div>
-{% endcomment %}
-  <div class="hr"></div>
-  {% if settings.show_related_products %}
+
+</div>
   
+<div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+{% comment %}
+  <div class="half_disc_readmore" style="display:none;">{{ product.description | truncate: 400 }}</div>
+{% endcomment %}
+<div class="hr"></div>
+{% if settings.show_related_products %}
   <div class="related">
   {% include 'related-products' %}
   </div>
-  {% endif %}
+{% endif %}
   
   {% comment %}
    {% include 'jquery_css_counter-stockbar' %}
- {% endcomment %}
+  {% endcomment %}
   
  {{ 'timer_all.scss' | asset_url | stylesheet_tag }}
   

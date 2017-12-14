@@ -228,7 +228,7 @@ assets/style.css:
 assets/timber.js.liquid:
   development: 2017-12-09T23:05:22+09:00   ad53c09044368c6a8f7278d247cee0b4
 assets/timber.scss.liquid:
-  development: 2017-12-14T08:11:42+09:00   15df9da41190076d5c9e143c8275fbd0
+  development: 2017-12-14T17:24:04+09:00   504f5d7716446ece3a597157354415c0
 assets/timer.css:
   development: 2017-12-14T00:23:05+09:00   a7ff65cc8563136a5ab15656cdb38094
 assets/timer.js:
@@ -248,11 +248,11 @@ assets/user-icn.jpg:
 assets/user_mobile.png:
   development: 2017-12-09T23:05:24+09:00   ab9c37ccd80d0bb2b1ac1dc8071cd817
 config/settings_data.json:
-  development: 2017-12-14T14:17:04+09:00   cd64dfd2e898250673f17f6f049e8afa
+  development: 2017-12-14T16:53:55+09:00   ec99a374b34703d65863b11c655463a2
 config/settings_schema.json:
   development: 2017-12-09T23:05:26+09:00   7c57713f3018bbf16090ab1c9509b850
 layout/theme.liquid:
-  development: 2017-12-12T23:25:16+09:00   18b3e2da24bb90b182bd203681372cdc
+  development: 2017-12-14T16:24:01+09:00   5cb071a6080055f934e357441d5fd2a7
 locales/da.json:
   development: 2017-12-09T23:05:24+09:00   0a1b4a2bf4c1ce9d97c55111db7d53d2
 locales/de.json:
@@ -310,11 +310,11 @@ snippets/currency-picker.liquid:
 snippets/discount_popup.liquid:
   development: 2017-12-09T23:05:24+09:00   5e468ffb23e83844f6cdc21a378b38df
 snippets/element_add_to_cart.liquid:
-  development: 2017-12-09T23:05:24+09:00   247c1ff60fb416ddb79c892d1c9ae9bd
+  development: 2017-12-14T16:21:40+09:00   247c1ff60fb416ddb79c892d1c9ae9bd
 snippets/element_progress_bar.liquid:
   development: 2017-12-09T23:05:24+09:00   a3a86f241e70313e60a3d5cdb006c227
 snippets/element_timer.liquid:
-  development: 2017-12-09T23:05:24+09:00   9a24689dac8ce4d88e26c67e7e32d6d3
+  development: 2017-12-14T16:49:28+09:00   1a94961a3a089069f7b46e6f03f99dac
 snippets/featured-collection.liquid:
   development: 2017-12-09T23:05:24+09:00   deca03fef8b8a248d71ce00db2198a04
 snippets/featured-row-fifth.liquid:
@@ -328,7 +328,7 @@ snippets/flex_slider.liquid:
 snippets/footer.liquid:
   development: 2017-12-09T23:05:24+09:00   0b1f68b8058dd5da59e3e2eb7c3b206a
 snippets/footer_above.liquid:
-  development: 2017-12-13T23:30:31+09:00   7d78efc62c11dfa9b720f6836b25d32b
+  development: 2017-12-14T17:10:20+09:00   559683603fc975d2a69e9a24b9aa9678
 snippets/fourth_product_disposition_home.liquid:
   development: 2017-12-09T23:05:24+09:00   326d7204133141f328d4c67ef5cf84e0
 snippets/header_strip.liquid:
@@ -478,6 +478,6 @@ templates/page.redeem_test.liquid:
 templates/page.test.liquid:
   development: 2017-12-09T23:05:26+09:00   75f27f604924cbff9c582ee25c911195
 templates/product.liquid:
-  development: 2017-12-13T22:52:43+09:00   3bbf91dd41f55ef4e675c2ccbf30f9ed
+  development: 2017-12-14T16:45:39+09:00   c98d8fb18b16924334db40b1400a817d
 templates/search.liquid:
   development: 2017-12-09T23:05:26+09:00   47f7ba47ed343f4464d927c831be0e5b
