@@ -18,7 +18,7 @@
          {% if on_sale %}
         
              <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
-              <s>
+              <span class="strike before-sale-price">
  
                  {{ product.compare_at_price | money | split: '.' | first}}
                 <sup>
@@ -27,7 +27,7 @@
 
                 </sup>
             
-             </s>        
+             </span>        
    
       {% endif %}   
             
