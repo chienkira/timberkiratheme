@@ -26,7 +26,7 @@
     "cart_button_color": "#ffffff",
     "logo_use_image": true,
     "logo_max_width": "200",
-    "favicon_enable": false,
+    "favicon_enable": true,
     "menu_font_size": 15,
     "sub_menu_font_size": 15,
     "mobile_logo_size": "75%",
