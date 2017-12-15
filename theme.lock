@@ -362,7 +362,7 @@ snippets/new_flex.liquid:
 snippets/new_footer.liquid:
   development: 2017-12-09T23:05:25+09:00   d825f0bc62f1931bdc8ba2d02a5f7835
 snippets/new_one_footer.liquid:
-  development: 2017-12-13T00:14:50+09:00   201b646665076f5d1dff82a88ee01ce4
+  development: 2017-12-15T11:33:15+09:00   d3524aabf94b9cbca6a68cd6214997cb
 snippets/oldIE-js.liquid:
   development: 2017-12-09T23:05:25+09:00   1197cc7109944206a600ed5caaef6a6f
 snippets/onboarding-empty-collection.liquid:

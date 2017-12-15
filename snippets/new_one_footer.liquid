@@ -68,6 +68,7 @@
           function initMap() {
             var droney = {lat: 35.6895, lng: 139.6917};
             var droney_sing = {lat: 1.2757892046215, lng: 103.84725809097};
+            var droney_us = {lat: 37.776496, lng: -122.419313};
             var map = new google.maps.Map(document.getElementById('droney_map'), {
               zoom: 1,
               center: droney,
@@ -238,6 +239,10 @@
             });
             var marker_sing = new google.maps.Marker({
               position: droney_sing,
+              map: map
+            });
+            var marker_us = new google.maps.Marker({
+              position: droney_us,
               map: map
             });
           }
