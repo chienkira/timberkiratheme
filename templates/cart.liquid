@@ -218,8 +218,8 @@
       {% endif %}
       <div class="grid__item text-right{% if settings.cart_notes_enable %} one-third small--one-whole{% endif %}">
         <p>
-          <span class="cart__subtotal-title">{{ 'cart.general.subtotal' | t }}</span>
-          <span class="h3 cart__subtotal">{{ cart.total_price | money }}</span>
+          <span class="cart__subtotal-title"><span id="bk-cart-subtotal-label">{{ 'cart.general.subtotal' | t }}</span></span>
+          <span class="h3 cart__subtotal"><span id="bk-cart-subtotal-price">{{ cart.total_price | money }}</span></span>
         </p>
         <!--<p><em>{{ 'cart.general.shipping_at_checkout' | t }}</em></p>
         -->
